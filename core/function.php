@@ -21,3 +21,11 @@ function renderTemplate($name, $data = [])
 
     return $result; // Возвращаем результат
 }
+
+//функция для форматированного вывода массива
+
+function pr($arr){
+    echo '<pre>';
+    print_r($arr);
+    echo '</pre>';
+}

@@ -14,14 +14,14 @@
     <div class="header_resize">
       <div class="menu_nav">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="support.html">Support</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li class="active"><a href="index.php">Главная</a></li>
+          <li><a href="support.php">Поддержка</a></li>
+          <li><a href="about.php">О нас</a></li>
+          <li><a href="contact.php">Контакты</a></li>
         </ul>
       </div>
       <div class="logo">
-        <h1><a href="index.html">Green<span>Line</span></a> <small>put your slogan here</small></h1>
+        <h1><a href="index.php">Green<span>Line</span></a> <small>put your slogan here</small></h1>
       </div>
       <div class="clr"></div>
     </div>
@@ -92,7 +92,7 @@
   <div class="footer">
     <div class="footer_resize">
       <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
-      <p class="rf"><a href="">Free CSS Templates</a></p>
+      <p class="rf"><a href="/">Free CSS Templates</a></p>
       <div class="clr"></div>
     </div>
   </div>
