@@ -5,17 +5,24 @@ require_once 'core/init.php';
 /**
  * $arCategory - список категорий для layout(init.php)
  */
-
 $title = 'Поддержка';
 
-$page_content = renderTemplate("support");
+$resSup = mysqli_query($link, "SELECT s.`title` AS `question`, s.`text` AS `answer` FROM `support` AS s");
 
-$res = renderTemplate('layout', [
+$arSupport = mysqli_fetch_all($resSup, MYSQLI_ASSOC);
+
+//pr($arSupport);
+
+$page_content = renderTemplate("support", [
+                        'arSupport' => $arSupport
+]);
+
+$result = renderTemplate('layout', [
                         'content' => $page_content, 
                         'title' => $title,
                         'arCategory' => $arCategory
 ]);
 
-echo $res;
+echo $result;
 
 ?>

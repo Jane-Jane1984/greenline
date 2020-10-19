@@ -7,4 +7,5 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/core/function.php'; // Подключ
 
 
 $res = mysqli_query($link, "SELECT * FROM `category` ORDER BY `title` ASC");
+
 $arCategory = mysqli_fetch_all($res, MYSQLI_ASSOC);
