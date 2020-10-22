@@ -17,9 +17,12 @@
             <p class="ans"><?=$support['answer'];?></p>
          </li>
       </ul>
-   <?endforeach;?>
 
+   <?endforeach;?>
+</div>
+   
+<?=$navigation;?>
    <?else:?>
       <p>Служба поддержки скоро начнёт свою работую</p>
    <?endif;?>
-   </div>
+   

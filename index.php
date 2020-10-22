@@ -24,10 +24,9 @@ if($page <= 0){
 $offset = $page * $num - $num; //формула определят, с какой новости начинать
 
 
-$res = mysqli_query($link, "SELECT n.`id`, n.`title`, n.`preview_text`,"." 
-n.`date`, n.`images`, n.`comments_cnt`, c.`title` AS news_cat FROM `news` n "." 
+$res = mysqli_query($link, "SELECT n.`id`, n.`title`, n.`preview_text`,
+n.`date`, n.`image`, n.`comments_cnt`, c.`title` AS news_cat FROM `news` n
 JOIN `category` c ON c.`id` = n.`category_id` ORDER BY n.`id` LIMIT $offset, $num");
-
 
 $arNews = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
