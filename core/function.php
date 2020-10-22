@@ -29,3 +29,27 @@ function pr($arr){
     print_r($arr);
     echo '</pre>';
 }
+
+
+/**
+ *функция добавления параметра в адресную строку
+ */
+function setPageParam($param, $value){
+
+    $qParam = $_SERVER['QUERY_STRING'];  //получаем строку с параметрамі
+    parse_str($qParam, $arr);  //генеріруем массив из этой строки
+
+    if(!empty($param) && !empty($value)){ //еслі переданы параметры
+
+        if(array_key_exists($param, $arr)){  //если есть такой ключ в массиве
+            $arr['$param'] = $value;  //меняем значение в полученном массиве
+
+        }else{
+            $arr[$param] = $value;
+        }
+
+    }
+
+    return http_build_query($arr);
+
+}

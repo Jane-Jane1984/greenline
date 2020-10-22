@@ -47,8 +47,9 @@
           <ul class="sb_menu">
 
             <? foreach($arCategory as $category): ?>
-            <li><a href="#"><?=$category['title'];?></a></li>
+            <li><a href="?=<?=$category['id'];?>"><?=$category['title'];?></a></li> <?//category - это нами созданный параметр для фильтрации?>
             <? endforeach; ?>
+
 
           </ul>
         </div>

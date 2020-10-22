@@ -23,20 +23,42 @@ if($page <= 0){
 
 $offset = $page * $num - $num; //формула определят, с какой новости начинать
 
+$where = '';
+if(isset($_GET['category'])){//проверяем есть ли такой параметр
+    //pr($_GET['category']);
+    $category = intval($_GET['category']);
+    if($category > 0){
+        $where = 'WHERE `category_id` =' . $category;
+    }
+
+}
 
 $res = mysqli_query($link, "SELECT n.`id`, n.`title`, n.`preview_text`,
 n.`date`, n.`image`, n.`comments_cnt`, c.`title` AS news_cat FROM `news` n
-JOIN `category` c ON c.`id` = n.`category_id` ORDER BY n.`id` LIMIT $offset, $num");
+JOIN `category` c ON c.`id` = n.`category_id` $where ORDER BY n.`id` LIMIT $offset, $num");
 
 $arNews = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
 $arPage = range(1, $totalStr); //создали массив с количеством страниц новостей с помощью функции
 
+$prevPage = '';
+if($page > 1){
+    $prevPage = $page - 1;
+}
+$nextPage = '';
+if($page < $totalStr){
+    $nextPage = $page + 1;
+}
+
+$is_nav = ($totalStr > 1) ? true : false; //если колич-во страниц больше одной, то показывать навигацию
 //шаблон навигации
 $pageNavigation = renderTemplate('navigation', [
-                                        'arPage' => $arPage,  //получаем html шаблона навигации, передаем массив со страницами в него.
+                                        //'arPage' => $arPage,  //получаем html шаблона навигации, передаем массив со страницами в него.
                                         'totalPage' => $totalStr, // передаём количество страниц
-                                        'curPage' => $page //передаём текущую страницу
+                                        'curPage' => $page, //передаём текущую страницу
+                                        'nextPage' => $nextPage, //передаём номер следующей страницы
+                                        'prevPage' => $prevPage,  //передаём номер предыдущей страницы
+                                        'show' => $is_nav  // параметр для показа навигации
 ]);
 
 //pr($arNews);
