@@ -1,0 +1,47 @@
+[33mcommit d424eecfe57949a1471eb195af8988610dfff341[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Volkova <study@study.com>
+Date:   Thu Oct 22 21:29:57 2020 +0300
+
+    add category
+
+[33mcommit b5d9bdd077867b037970cefe67056098c84fb429[m
+Author: First Jane <myfirst@first.co>
+Date:   Thu Oct 22 17:37:20 2020 +0300
+
+    add support navigation
+
+[33mcommit faacc0ef737e3a17e38c3e3e8337c8a3af23b018[m
+Author: Volkova <study@study.com>
+Date:   Mon Oct 19 21:38:52 2020 +0300
+
+    add page navigation on index.php
+
+[33mcommit 5d37b88af239a51447e46aec76967235599c9911[m
+Author: First Jane <myfirst@first.co>
+Date:   Mon Oct 19 11:26:24 2020 +0300
+
+    Add Support from DB
+
+[33mcommit d98d45e6875fa3f0ccdaf33149e321b7bb751111[m
+Author: First Jane <myfirst@first.co>
+Date:   Thu Oct 15 21:19:59 2020 +0300
+
+    done php select and circle of news
+
+[33mcommit 368296699047bd867dff216ccd55b9d4f9ce06e1[m
+Author: Volkova <study@study.com>
+Date:   Mon Oct 12 21:40:09 2020 +0300
+
+    add function renderTaplaem
+
+[33mcommit 8902490997083709f1efd62c6a010859ebc159a0[m
+Author: develop <n0899@yandex.ru>
+Date:   Thu Oct 8 13:22:02 2020 +0400
+
+    add sql dump
+
+[33mcommit b7632b83e849d67480711b048e4e92ce8648472b[m
+Author: develop <n0899@yandex.ru>
+Date:   Wed Sep 30 12:22:04 2020 +0400
+
+    first commit

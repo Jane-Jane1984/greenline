@@ -50,6 +50,7 @@ if($page < $totalStr){
     $nextPage = $page + 1;
 }
 
+
 $is_nav = ($totalStr > 1) ? true : false; //если колич-во страниц больше одной, то показывать навигацию
 //шаблон навигации
 $pageNavigation = renderTemplate('navigation', [
