@@ -13,7 +13,8 @@ $page_content = renderTemplate("contact");
 $res = renderTemplate('layout', [
                         'content' => $page_content, 
                         'title' => $title,
-                        'arCategory' => $arCategory
+                        'arCategory' => $arCategory, 
+                        'menuActive' => 'contact'
 ]);
 
 echo $res;

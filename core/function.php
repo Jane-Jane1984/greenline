@@ -40,16 +40,9 @@ function setPageParam($param, $value){
     parse_str($qParam, $arr);  //генеріруем массив из этой строки
 
     if(!empty($param) && !empty($value)){ //еслі переданы параметры
-
-        if(array_key_exists($param, $arr)){  //если есть такой ключ в массиве
-            $arr['$param'] = $value;  //меняем значение в полученном массиве
-
-        }else{
-            $arr[$param] = $value;
-        }
-
+        $arr[$param] = $value;  //меняем значение в полученном массиве
+        
     }
-
-    return http_build_query($arr);
-
+        return http_build_query($arr);
+    
 }

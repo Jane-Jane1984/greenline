@@ -14,10 +14,10 @@
     <div class="header_resize">
       <div class="menu_nav">
         <ul>
-          <li class="active"><a href="index.php">Главная</a></li>
-          <li><a href="support.php">Поддержка</a></li>
-          <li><a href="about.php">О нас</a></li>
-          <li><a href="contact.php">Контакты</a></li>
+<li <?if($menuActive == 'main'):?>class="active"<?endif;?>><a href="index.php">Главная</a></li>
+          <li <?if($menuActive == 'support'):?>class="active"<?endif;?>><a href="support.php">Поддержка</a></li>
+          <li <?if($menuActive == 'about'):?>class="active"<?endif;?>><a href="about.php">О нас</a></li>
+          <li <?if($menuActive == 'contact'):?>class="active"<?endif;?>><a href="contact.php">Контакты</a></li>
         </ul>
       </div>
       <div class="logo">
@@ -82,17 +82,17 @@
       <div class="col c3">
         <h2><span>Контакты</span></h2>
         <p>Мы будем рады ответить на любые вопросы.</p>
-        <p><a href="#">support@yoursite.com</a></p>
-        <p>+1 (123) 444-5677<br />
-          +1 (123) 444-5678</p>
-        <p>Адрес: 123 TemplateAccess Rd1</p>
+        <p><a href="#"><?=SITE_EMAIL;?></a></p>
+        <p><?=SITE_PHONE_1;?><br />
+        <?=SITE_PHONE_2;?></p>
+        <p>Адрес: <?=ADRESS;?></p>
       </div>
       <div class="clr"></div>
     </div>
   </div>
   <div class="footer">
     <div class="footer_resize">
-      <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
+      <p class="lf">Copyright &copy; <?= date("Y");?> <a href="#">SiteName</a> - All Rights Reserved</p>
       <p class="rf"><a href="/">Free CSS Templates</a></p>
       <div class="clr"></div>
     </div>

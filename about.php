@@ -13,7 +13,8 @@ $page_content = renderTemplate("about");
 $res = renderTemplate('layout', [
                         'content' => $page_content, 
                         'title' => $title,
-                        'arCategory' => $arCategory
+                        'arCategory' => $arCategory,
+                        'menuActive' => 'about'
 ]);
 
 echo $res;

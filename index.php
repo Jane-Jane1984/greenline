@@ -10,7 +10,20 @@ $title = 'Главная страница';
 
 $num = 3; //количество новостей на странице
 
-$resTotal = mysqli_query($link, "SELECT * FROM `news`");
+/**
+ * Фильтрация по категориям
+ */
+$where = '';
+if(isset($_GET['category'])){//проверяем есть ли такой параметр
+    //pr($_GET['category']);
+    $category = intval($_GET['category']);
+    if($category > 0){
+        $where = 'WHERE `category_id` = ' . $category;
+    }
+
+}
+
+$resTotal = mysqli_query($link, "SELECT * FROM `news` $where");
 $total = mysqli_num_rows($resTotal); //возвращает количество записей в запросе
 $totalStr = ceil($total / $num);  //общее число страниц с функцией округления в большую сторону
 
@@ -23,15 +36,6 @@ if($page <= 0){
 
 $offset = $page * $num - $num; //формула определят, с какой новости начинать
 
-$where = '';
-if(isset($_GET['category'])){//проверяем есть ли такой параметр
-    //pr($_GET['category']);
-    $category = intval($_GET['category']);
-    if($category > 0){
-        $where = 'WHERE `category_id` =' . $category;
-    }
-
-}
 
 $res = mysqli_query($link, "SELECT n.`id`, n.`title`, n.`preview_text`,
 n.`date`, n.`image`, n.`comments_cnt`, c.`title` AS news_cat FROM `news` n
@@ -64,7 +68,7 @@ $pageNavigation = renderTemplate('navigation', [
 
 //pr($arNews);
 
-$page_content = renderTemplate("main", [ //получаем html блока c новостями шаблона main/
+$page_content = renderTemplate("main", [ //получаем html блока c новостями шаблона main
                         'arNews' => $arNews,  //передаём массив с новостями, полученными из базы
                         'navigation' => $pageNavigation  //передаём полученный html-код навигации
 ]);
@@ -73,7 +77,8 @@ $page_content = renderTemplate("main", [ //получаем html блока c н
 $result = renderTemplate('layout', [  //получаем главный шаблон страницы
                         'content' => $page_content, //туда передаём html-код шаблона main
                         'title' => $title, //передаём заголовок окна
-                        'arCategory' => $arCategory //передаём массив с категориями из базы
+                        'arCategory' => $arCategory, //передаём массив с категориями из базы
+                        'menuActive' => 'main' 
                         ]);
 
 echo $result; //выводим на экран окончательный html страницы
