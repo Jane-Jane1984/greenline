@@ -23,7 +23,14 @@ if(isset($_GET['category'])){//проверяем есть ли такой па�
 
 }
 
-$resTotal = mysqli_query($link, "SELECT * FROM `news` $where");
+// если есть условие и выбранная категория
+if($where != '' && isset($category)){
+    $resTotal = getStmtResult($link, "SELECT * FROM `news` $where", [$category]);
+}else{
+    $resTotal = getStmtResult($link, "SELECT * FROM `news`");
+}
+
+
 $total = mysqli_num_rows($resTotal); //возвращает количество записей в запросе
 $totalStr = ceil($total / $num);  //общее число страниц с функцией округления в большую сторону
 
@@ -36,10 +43,17 @@ if($page <= 0){
 
 $offset = $page * $num - $num; //формула определят, с какой новости начинать
 
+$query = "SELECT n.`id`, n.`title`, n.`preview_text`, n.`date`, n.`image`, n.`comments_cnt`, c.`title` AS news_cat FROM `news` n
+JOIN `category` c ON c.`id` = n.`category_id` $where ORDER BY n.`id` LIMIT ?, ?";
 
-$res = mysqli_query($link, "SELECT n.`id`, n.`title`, n.`preview_text`,
-n.`date`, n.`image`, n.`comments_cnt`, c.`title` AS news_cat FROM `news` n
-JOIN `category` c ON c.`id` = n.`category_id` $where ORDER BY n.`id` LIMIT $offset, $num");
+// в зависимости от наличия условий подготавливаем параметры
+if($where != '' && isset($category)){
+    $param = [$category, $offset, $num];
+}else{
+    $param = [$offset, $num];
+}
+
+$res = getStmtResult($link, $query, $param);
 
 $arNews = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
