@@ -58,6 +58,8 @@ function getWeekDay(){
  * @param array $param
  * @return false|mysqli_result
  */
+
+
 function getStmtResult($link, $query, $param = [])
 {
 
@@ -78,8 +80,8 @@ function getStmtResult($link, $query, $param = [])
 
         $values = array_merge([$stmt, $type], $param); //получение единого массива параметров для передачи в функцию mysqli_stmt_bind_param
 
-        $func = 'mysqli_stmt_bind_param';
-        $func(...$values); //... указывает, что у функции переменное кол-во аргументов
+        $func = "mysqli_stmt_bind_param";
+        $func(...$values); //... - указывает, что у функции переменное кол-во аргументов
 
         mysqli_stmt_execute($stmt); //выполняет подготовленный запрос
 

@@ -380,3 +380,6 @@ ol li .send {
 	border: 1px solid #000;
 	padding: 2px;
 }
+.error{
+	color: red;
+}

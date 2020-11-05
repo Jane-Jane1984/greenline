@@ -1,5 +1,4 @@
 
-
 <div class="article">
    <h2><span>Support to</span> Company Name</h2>
    <div class="clr"></div>

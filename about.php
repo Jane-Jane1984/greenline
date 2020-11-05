@@ -8,7 +8,15 @@ require_once 'core/init.php';
 
 $title = 'О нас';
 
-$page_content = renderTemplate("about");
+$arAb = mysqli_query($link, "SELECT `title`, `short_text`, `descript_text` FROM `about`");
+
+$arAbout = mysqli_fetch_all($arAb, MYSQLI_ASSOC);
+
+//pr($arAbout);
+
+$page_content = renderTemplate("about", [
+                              'arAbout' => $arAbout
+]);
 
 $res = renderTemplate('layout', [
                         'content' => $page_content, 

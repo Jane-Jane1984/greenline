@@ -7,9 +7,6 @@ require_once 'core/init.php';
  */
 $title = 'Поддержка';
 
-
-
-
 //pr($arSupport);
 
 $num = 3; //количество новостей на странице

@@ -4,6 +4,7 @@ require_once 'core/init.php';
 
 /**
  * $arCategory - список категорий для layout(init.php)
+ * $link - ресурс запроса
  */
 
 $title = 'Главная страница';
@@ -18,7 +19,7 @@ if(isset($_GET['category'])){//проверяем есть ли такой па�
     //pr($_GET['category']);
     $category = intval($_GET['category']);
     if($category > 0){
-        $where = 'WHERE `category_id` = ' . $category;
+        $where = 'WHERE `category_id` = ?';
     }
 
 }
@@ -43,7 +44,7 @@ if($page <= 0){
 
 $offset = $page * $num - $num; //формула определят, с какой новости начинать
 
-$query = "SELECT n.`id`, n.`title`, n.`preview_text`, n.`date`, n.`image`, n.`comments_cnt`, c.`title` AS news_cat FROM `news` n
+$query = "SELECT n.`id`, n.`title`, n.`preview_text`, DATE_FORMAT(n.`date`, '%d.%m.%Y %H:%i') AS news_date, n.`image`, n.`comments_cnt`, c.`title` AS news_cat FROM `news` n
 JOIN `category` c ON c.`id` = n.`category_id` $where ORDER BY n.`id` LIMIT ?, ?";
 
 // в зависимости от наличия условий подготавливаем параметры
@@ -56,7 +57,7 @@ if($where != '' && isset($category)){
 $res = getStmtResult($link, $query, $param);
 
 $arNews = mysqli_fetch_all($res, MYSQLI_ASSOC);
-
+//pr($arNews);
 $arPage = range(1, $totalStr); //создали массив с количеством страниц новостей с помощью функции
 
 $prevPage = '';
@@ -70,6 +71,8 @@ if($page < $totalStr){
 
 
 $is_nav = ($totalStr > 1) ? true : false; //если колич-во страниц больше одной, то показывать навигацию
+
+
 //шаблон навигации
 $pageNavigation = renderTemplate('navigation', [
                                         //'arPage' => $arPage,  //получаем html шаблона навигации, передаем массив со страницами в него.
