@@ -23,7 +23,9 @@
             ?>
        <?endforeach;?>
     <?endif;?>
+
     <p><a href="#"><strong>Комментариев (<span id = "cc"><?=$arNews['comments_cnt'];?></span>)</strong></a> <span>&nbsp;&bull;&nbsp;</span><?=$arNews['date_detail'];?><span>&nbsp;&bull;&nbsp;</span> <a href="#"><strong>Edit</strong></a></p>
+
 </div>
 <div class="article">
     <h2>Комментарии к новости</h2>

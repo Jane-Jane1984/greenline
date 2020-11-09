@@ -23,6 +23,7 @@ $(document).ready(function () {
                //let cc = $("#cc").html(); //получили колич-во комментариев и записали её в переменную
                //let newCc = parseInt(cc) + 1; //увеличиваем на 1
                //$("#cc").html(newCc); // перезаписываем span
+
             }
          });
 
