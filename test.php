@@ -91,11 +91,48 @@ while($arRes = mysqli_fetch_assoc($res)){
     pr($arRes);
 }
 */
-$category = $_GET['category'];
+/*$category = $_GET['category'];
 $title = 'Технологии';
 
 $res = getStmtResult($link, "SELECT * FROM `category`");
 while($arRes = mysqli_fetch_assoc($res)){
     pr($arRes);
     }
+*/
 
+pr($_FILES);
+if(!empty($_FILES['user_file']['error'])){
+    foreach ($_FILES['user_file']['error'] as $k => $val) {
+        if($val == 0){
+            $upload = $_SERVER['DOCUMENT_ROOT'] . '/upload/';
+            $arName = explode('.', $_FILES['user_file']['name'][$k]);
+            $name = $arName[0] . '_' . time() . '.' . $arName[1];
+            move_uploaded_file($_FILES['user_file']['tmp_name'][$k], $upload . $name);
+
+        }
+    }
+}
+
+/*if($_FILES['user_file']['error'] == 0) //проверяем что файл был загружен
+
+$upload = $_SERVER['DOCUMENT_ROOT'] . '/upload/'; // путь к папке с загрузками
+$arName = explode('.', $_FILES['user_file']['name']); // массив с именем файла преобразуем в строку
+$name = $arName[0] . '_' . time() . '.' . $arName[1]; //составляем новое имя для файла с использованием метки времени
+    move_uploaded_file($_FILES['user_file']['tmp_name'], $upload . $name);
+
+}*/
+
+
+
+?>
+<!--Форма для загрузки файлов-->
+
+<form method="post" enctype="multipart/form-data">
+    <!--<input type="hidden" name="MAX_FILE_SIZE" value="30000" />--> <!--поставить ограничение по размеру-->
+    <input type="file" name="user_file[]"/><br/>
+    <input type="file" name="user_file[]"/><br/>
+    <input type="file" name="user_file[]"/><br/>
+    <input type="file" name="user_file[]"/><br/>
+    <input type ="submit" value="Загрузить"/>
+
+</form>

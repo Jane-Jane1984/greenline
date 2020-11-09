@@ -74,9 +74,10 @@
         <p>Будь в курсе!<br />
           На сайте представлена подборка самых свежих новостей науки, медицины, современных технологий и многого другого. Вы можете подписаться на нашу рассылку, чтобы всегда быть в курсе.</p>
         <div>
+            <div id="sub_mess"></div>
           <form class="subscribe">
-            <input type="email" name="email" placeholder="Ваш email" />
-            <input type="submit" class="button" value="Подписаться" />
+            <input type="text" name="email" placeholder="Ваш email" />
+            <input type="button" id = "send_sub" class="button" value="Подписаться" />
           </form>
         </div>
       </div>
