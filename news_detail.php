@@ -28,7 +28,7 @@ $arTag = mysqli_query($link, "SELECT t.`id`, t.`tag`, t.`news_id` FROM `tags` t 
 
 $arrTags = mysqli_fetch_all($arTag, MYSQLI_ASSOC);
 
-pr($arrTags);
+//pr($arrTags);
 
 $page_content = renderTemplate("news_detail", [ //получаем html блока c новостями шаблона news_detail
     'arNews' => $arNewsDetail,  //передаём массив с новостью, полученной из базы
