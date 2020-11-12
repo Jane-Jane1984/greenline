@@ -14,7 +14,9 @@
     <p>Tagged: <a href="#">orci</a>, <a href="#">lectus</a>, <a href="#">varius</a>, <a href="#">turpis</a></p>
     <?endif;?>
     <p><a href="#"><strong>Comments (<?=$arNews['comments_cnt'];?>)</strong></a> <span>&nbsp;&bull;&nbsp;</span><?=$arNews['date_detail'];?><span>&nbsp;&bull;&nbsp;</span> <a href="#"><strong>Edit</strong></a></p>
+    <p><a href="/"><strong> Свернуть</strong></a></p>
     <p><a href="/"><strong> Вернуться на главную страницу</strong></a></p>
+
 </div>
 <div class="article">
     <h2>Комментарии к новости</h2>
