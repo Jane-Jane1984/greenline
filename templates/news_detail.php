@@ -9,9 +9,19 @@
     </p>
 
 
-    <?if(!empty($arrTags)):?>
+    <?if(!empty($arTags)):?>
     
-    <p>Tagged: <a href="#">orci</a>, <a href="#">lectus</a>, <a href="#">varius</a>, <a href="#">turpis</a></p>
+    <p>Tagged:
+        <?
+            $cntTags = count($arTags);
+            $c = 1;
+        ?>
+        <?foreach ($arTags as $tag):?>
+        <a href="#"><?=$tag['tag'];?></a><?if($cntTags > $c):?>, <?endif;?>
+        <?
+            $c++;
+            ?>
+       <?endforeach;?>
     <?endif;?>
     <p><a href="#"><strong>Comments (<?=$arNews['comments_cnt'];?>)</strong></a> <span>&nbsp;&bull;&nbsp;</span><?=$arNews['date_detail'];?><span>&nbsp;&bull;&nbsp;</span> <a href="#"><strong>Edit</strong></a></p>
     <p><a href="/"><strong> Свернуть</strong></a></p>
@@ -20,7 +30,7 @@
 </div>
 <div class="article">
     <h2>Комментарии к новости</h2>
-    <?=$comments;?>
+    <div id ="comments"><?=$comments;?></div>
 </div>
 <div class="article">
     <h2><span>Оставьте</span> комментарий</h2>

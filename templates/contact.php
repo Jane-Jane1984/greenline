@@ -6,7 +6,7 @@
         <div class="article">
           <h2><span>Написать</span> письмо</h2>
           <div class="clr"></div>
-          <form action="#" method="post" id="sendemail">
+          <form action="" method="post" id="sendemail">
             <ol>
               <li>
                 <label for="name">Имя (обязательно)</label>
