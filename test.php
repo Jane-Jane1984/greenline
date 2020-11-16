@@ -100,18 +100,18 @@ while($arRes = mysqli_fetch_assoc($res)){
     }
 */
 
-pr($_FILES);
-if(!empty($_FILES['user_file']['error'])){
-    foreach ($_FILES['user_file']['error'] as $k => $val) {
-        if($val == 0){
-            $upload = $_SERVER['DOCUMENT_ROOT'] . '/upload/';
-            $arName = explode('.', $_FILES['user_file']['name'][$k]);
-            $name = $arName[0] . '_' . time() . '.' . $arName[1];
-            move_uploaded_file($_FILES['user_file']['tmp_name'][$k], $upload . $name);
+        pr($_FILES);
+        if(!empty($_FILES['user_file']['error'])){
+            foreach ($_FILES['user_file']['error'] as $k => $val) {
+                if($val == 0){
+                    $upload = $_SERVER['DOCUMENT_ROOT'] . '/upload/';
+                    $arName = explode('.', $_FILES['user_file']['name'][$k]);
+                    $name = $arName[0] . '_' . time() . '.' . $arName[1];
+                    move_uploaded_file($_FILES['user_file']['tmp_name'][$k], $upload . $name);
 
+                }
+            }
         }
-    }
-}
 
 /*if($_FILES['user_file']['error'] == 0) //проверяем что файл был загружен
 
