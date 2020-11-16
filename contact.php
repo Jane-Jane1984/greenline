@@ -8,7 +8,7 @@ require_once 'core/init.php';
 
 $title = 'Контакты';
 
-if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['phone']) !empty($_POST['message'])){
+if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['phone']) && !empty($_POST['message'])){
     $name = htmlspecialchars($_POST['name']);
     $email = htmlspecialchars($_POST['email']);
     $phone = htmlspecialchars($_POST['phone']);
